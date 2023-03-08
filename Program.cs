@@ -10,13 +10,13 @@ namespace CMP1903M_A01_2223
     {
         static void Main(string[] args)
         {
-            new Pack(); // Creation of the deck
+            new Pack(); // Create deck
             bool valid = false;
             while (!valid)
             {
                 Console.Write("Shuffle type: ");
                 string num = Console.ReadLine();
-                // Attempt to convert user input to integer, if unsuccessful, prompt user to try again.
+                // Convert user input to integer, if not, ask the user for input again.
                 try
                 {
                     int shuffleType = Convert.ToInt32(num);

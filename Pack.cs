@@ -13,12 +13,12 @@ namespace CMP1903M_A01_2223
 
         public Pack()
         {
-            //Begin the card pack here
+            //Beginning of card pack
             pack = new List<Card>();
             for (int i = 1; i <= 52; i++) {
                 int v = 0;
                 int s = 0;
-                if (i % 13 == 0) // This prevents certain values from being set to 0 and the suit of a card from being set to -1.
+                if (i % 13 == 0) // Preventing values from being set to an incorrect integer (0, -1..)
                 {
                     v = 13;
                     s = i / 13;
@@ -28,7 +28,7 @@ namespace CMP1903M_A01_2223
                     v = i % 13;
                     s = (i / 13) + 1;
                 }
-                pack.Add(new Card() // This enhances the list (deck) by providing value and an appropriate fit.
+                pack.Add(new Card() // Enhances the deck by providing value with a fit.
                 {
                     Value = (v),
                     Suit = (s),
@@ -39,10 +39,10 @@ namespace CMP1903M_A01_2223
 
         } 
         
-
+      
         public static bool shuffleCardPack(int typeOfShuffle)
         {
-            //Rearrange the deck of cards depending on the type of shuffle.
+            //Shuffle cards according to shuffle type
             if (typeOfShuffle == 1) // The Fisher-Yates Shuffle
             {
                 Console.WriteLine("The Fisher-Yates Shuffle");
@@ -72,7 +72,7 @@ namespace CMP1903M_A01_2223
                         list2.Add(pack[i]);  
                     }
                 }
-                pack.Clear(); // Start at one end of the pack and take alternating cards, adding them one at a time to the back of the pack, as if performing a riffle shuffle.
+                pack.Clear(); // Riffle Shuffle
                 for (int i = 0; (i < 26); i++)
                 {
                     pack.Add(list1[i]);
@@ -81,19 +81,19 @@ namespace CMP1903M_A01_2223
 
                     return true;
             }
-            else if (typeOfShuffle == 3) // Completely No Shuffle
+            else if (typeOfShuffle == 3) // No Shuffle
             {
                 Console.WriteLine("Completely no shuffle");
                 return true;
             }
             Console.WriteLine("Invalid input");
-            return false; // If input is not valid, ask user to enter another input
+            return false; // If input is not valid, ask user to reenter input
         }
 
         public static Card deal()
         {
 
-            // Deals one card
+            // Deals a card
             Card dealt = pack[0];
             pack.RemoveAt(0);
             Console.WriteLine("Dealt: (V S) " + dealt.Value +" "+ dealt.Suit);
@@ -101,7 +101,7 @@ namespace CMP1903M_A01_2223
             return dealt;
 
             // Both deal types only process the first value of a given set and ignore any repeat values.
-            // Removes cards from the deck after each draw to allow for multiple draws to be looped if needed.
+            // Removes cards from deck after each draw to allow multiple draws to be looped if needed.
         }
         public static List<Card> dealCard(int amount)
         {
@@ -113,7 +113,7 @@ namespace CMP1903M_A01_2223
                 Console.WriteLine("Dealt: (V S) " + dealt[i].Value + " " + dealt[i].Suit);
             }
 
-            Console.WriteLine("Dealt " + amount + " cards!");
+            Console.WriteLine("Dealt " + amount + " cards.");
             return dealt;
 
         }

@@ -10,12 +10,12 @@ namespace CMP1903M_A01_2223
     {
         static void main(string[] args)
         {
-            new Pack(); // Constructs a new Pack object with default values
+            new Pack(); // Constructs a new Pack with normal values
                         // Calls the shuffleCardPack method which selects the different types.
             Pack.shuffleCardPack(1);
-            // Calls the deal methods
+            // Calls the dealing methods
             Pack.deal();
-            Pack.dealCard(51); // These assertions verify that the returned deck contains all 52 cards and is in a different order than the original, indicating that it has been shuffled.
+            Pack.dealCard(51); // Verifies that the returned deck contains 52 cards as well as being in a different order (shuffled).
             new Pack();
             Pack.shuffleCardPack(2);
             Pack.deal();
